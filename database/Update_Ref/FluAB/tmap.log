@@ -1,0 +1,115 @@
+[tmap index] packing the reference FASTA.
+[tmap index] 0.00/0.00 sec: packing contig [A_MP:1-982].
+[tmap index] 0.00/0.00 sec: packing contig [A_NP:1-1497].
+[tmap index] 0.00/0.00 sec: packing contig [A_NS:1-863].
+[tmap index] 0.00/0.00 sec: packing contig [A_PA:1-2151].
+[tmap index] 0.00/0.00 sec: packing contig [A_PB1:1-2274].
+[tmap index] 0.00/0.00 sec: packing contig [A_PB2:1-2280].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H1:1-1752].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H10:1-1686].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H11:1-1698].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H12:1-1695].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H13:1-1701].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H14:1-1707].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H15:1-1713].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H16:1-1698].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H2:1-1689].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H3:1-1737].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H4:1-1695].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H5:1-1707].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H6:1-1704].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H7:1-1713].
+[tmap index] 0.00/0.00 sec: packing contig [A_HA_H8:1-1701].
+[tmap index] 0.01/0.00 sec: packing contig [A_HA_H9:1-1683].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N1:1-1413].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N2:1-1410].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N3:1-1410].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N4:1-1413].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N5:1-1422].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N6:1-1413].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N7:1-1416].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N8:1-1413].
+[tmap index] 0.01/0.00 sec: packing contig [A_NA_N9:1-1413].
+[tmap index] 0.01/0.00 sec: packing contig [B_Victoria_HA:1-1885].
+[tmap index] 0.01/0.00 sec: packing contig [B_Yamagata_HA:1-1755].
+[tmap index] 0.01/0.00 sec: packing contig [B_MP:1-1139].
+[tmap index] 0.01/0.00 sec: packing contig [B_NA:1-1408].
+[tmap index] 0.01/0.00 sec: packing contig [B_NP:1-1683].
+[tmap index] 0.01/0.00 sec: packing contig [B_NS:1-1034].
+[tmap index] 0.01/0.00 sec: packing contig [B_PA:1-2181].
+[tmap index] 0.01/0.00 sec: packing contig [B_PB1:1-2263].
+[tmap index] 0.01/0.00 sec: packing contig [B_PB2:1-2313].
+[tmap index] 0.01/0.00 sec: total genome length [65710].
+[tmap index] 0.01/0.00 sec: packing the reverse compliment FASTA for BWT/SA creation.
+[tmap index] 0.01/0.00 sec: packed the reference FASTA.
+[tmap index] defaulting to "is" BWT construction algorithm.
+[tmap index] constructing the BWT string from the packed FASTA.
+[tmap index] 0.04/0.03 sec: constructed the BWT string from the packed FASTA.
+[tmap index] 0.04/0.03 sec: setting the BWT hash width to 9.
+[tmap index] constructing the occurrence hash for the BWT string.
+[tmap index] 0.04/0.03 sec: constructing 1-mer hash.
+[tmap index] 0.04/0.03 sec: constructing 2-mer hash.
+[tmap index] 0.04/0.03 sec: constructing 3-mer hash.
+[tmap index] 0.04/0.03 sec: constructing 4-mer hash.
+[tmap index] 0.04/0.03 sec: constructing 5-mer hash.
+[tmap index] 0.04/0.03 sec: constructing 6-mer hash.
+[tmap index] 0.04/0.03 sec: constructing 7-mer hash.
+[tmap index] 0.04/0.04 sec: constructing 8-mer hash.
+[tmap index] 0.05/0.04 sec: constructing 9-mer hash.
+[tmap index] 0.07/0.07 sec: testing the BWT hash.
+[tmap index] 0.07/0.07 sec: 1-mer validation passed.
+[tmap index] 0.07/0.07 sec: 2-mer validation passed.
+[tmap index] 0.07/0.07 sec: 3-mer validation passed.
+[tmap index] 0.07/0.07 sec: 4-mer validation passed.
+[tmap index] 0.07/0.07 sec: 5-mer validation passed.
+[tmap index] 0.07/0.07 sec: 6-mer validation passed.
+[tmap index] 0.07/0.07 sec: 7-mer validation passed.
+[tmap index] 0.09/0.08 sec: 8-mer validation passed.
+[tmap index] 0.14/0.13 sec: 9-mer validation passed.
+[tmap index] 0.14/0.13 sec: constructed the occurrence hash for the BWT string.
+[tmap index] constructing the SA from the BWT string.
+[tmap index] 0.16/0.16 sec: constructed the SA from the BWT string.
+[tmap index] packing the reference FASTA (forward only).
+[tmap index] 0.17/0.16 sec: packing contig [A_MP:1-982].
+[tmap index] 0.17/0.16 sec: packing contig [A_NP:1-1497].
+[tmap index] 0.17/0.16 sec: packing contig [A_NS:1-863].
+[tmap index] 0.17/0.16 sec: packing contig [A_PA:1-2151].
+[tmap index] 0.17/0.16 sec: packing contig [A_PB1:1-2274].
+[tmap index] 0.17/0.16 sec: packing contig [A_PB2:1-2280].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H1:1-1752].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H10:1-1686].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H11:1-1698].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H12:1-1695].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H13:1-1701].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H14:1-1707].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H15:1-1713].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H16:1-1698].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H2:1-1689].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H3:1-1737].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H4:1-1695].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H5:1-1707].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H6:1-1704].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H7:1-1713].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H8:1-1701].
+[tmap index] 0.17/0.16 sec: packing contig [A_HA_H9:1-1683].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N1:1-1413].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N2:1-1410].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N3:1-1410].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N4:1-1413].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N5:1-1422].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N6:1-1413].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N7:1-1416].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N8:1-1413].
+[tmap index] 0.17/0.16 sec: packing contig [A_NA_N9:1-1413].
+[tmap index] 0.17/0.16 sec: packing contig [B_Victoria_HA:1-1885].
+[tmap index] 0.17/0.16 sec: packing contig [B_Yamagata_HA:1-1755].
+[tmap index] 0.17/0.16 sec: packing contig [B_MP:1-1139].
+[tmap index] 0.17/0.16 sec: packing contig [B_NA:1-1408].
+[tmap index] 0.17/0.16 sec: packing contig [B_NP:1-1683].
+[tmap index] 0.17/0.16 sec: packing contig [B_NS:1-1034].
+[tmap index] 0.17/0.16 sec: packing contig [B_PA:1-2181].
+[tmap index] 0.17/0.16 sec: packing contig [B_PB1:1-2263].
+[tmap index] 0.17/0.16 sec: packing contig [B_PB2:1-2313].
+[tmap index] 0.17/0.16 sec: total genome length [65710].
+[tmap index] 0.17/0.16 sec: packed the reference FASTA.
+[tmap index] 0.17/0.16 sec: terminating successfully.

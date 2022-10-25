@@ -1,0 +1,11 @@
+08c196e5265b87fa48c85887e7062845  FluAB/CreateSequenceDictionary.log
+b7a8aaa22ebba2706260a15a15e3b089  FluAB/FluAB.dict
+34fcdb09e5271a9f09f0c0bf6159682d  FluAB/FluAB.fasta
+71c12188a2d7b1d004a52451c8918e99  FluAB/FluAB.fasta.fai
+2fce0b733fd54355d8e9861ef8d8d096  FluAB/FluAB.fasta.tmap.anno
+9e72be63c9fb9bbb98833b71860cd85b  FluAB/FluAB.fasta.tmap.bwt
+429c1449542bdf92d27fd27f17e93497  FluAB/FluAB.fasta.tmap.pac
+b546a6612b4bc7e5121fe38f75365a4f  FluAB/FluAB.fasta.tmap.sa
+627a295c2eeb4da28980b7e523e5e33b  FluAB/FluAB.info.txt
+d41d8cd98f00b204e9800998ecf8427e  FluAB/samtools.log
+dbed87ffc6a760ad70eb8bab9196829a  FluAB/tmap.log

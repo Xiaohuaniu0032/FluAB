@@ -1,0 +1,5 @@
+genome_name	FluAB
+genome_version	v1.0
+genome_length	65710
+index_version	tmap-f3
+fasta_md5checksum	34fcdb09e5271a9f09f0c0bf6159682d
