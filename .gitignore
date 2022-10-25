@@ -1,0 +1,6 @@
+data/Buffalo/
+bin/
+test/*/*.sam
+test/*/*.bam
+test/*/*.fastq
+test/*/*.bam.bai
