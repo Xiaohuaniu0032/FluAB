@@ -8,7 +8,7 @@
 ### Usage
 
 
-#### Methods
+### Methods
 
 1. TMAP uBAM file
 2. Genotyping
