@@ -20,7 +20,7 @@
 
 
 
-#### Reference fasta file
+### Reference fasta file
 
 We first use IRMA's default reference fasta file, then replace some segments with nextclade's flu segments.
 
