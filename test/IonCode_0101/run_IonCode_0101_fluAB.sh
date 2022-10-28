@@ -16,6 +16,9 @@ perl /data/fulongfei/git_repo/FluAB/scripts/stat_each_segment_reads_count.pl /da
 # Genotyping
 perl /data/fulongfei/git_repo/FluAB/scripts/fluAB_genotype.pl /data/fulongfei/git_repo/FluAB/test/IonCode_0101/IonCode_0101.seg.count.txt /data/fulongfei/git_repo/FluAB/test/IonCode_0101/IonCode_0101.genotype.txt
 
+# samtools depth
+/usr/bin/samtools depth -a -b /data/fulongfei/git_repo/FluAB/scripts/FluAB.target.bed /data/fulongfei/git_repo/FluAB/test/IonCode_0101/BWA/IonCode_0101.sorted.bam >/data/fulongfei/git_repo/FluAB/test/IonCode_0101/IonCode_0101.samtools_depth.txt
+
 # TMAP
 /data/fulongfei/git_repo/FluAB/bin/variantCaller/bin/tmap mapall -f /data/fulongfei/git_repo/FluAB/database/Update_Ref/FluAB/FluAB.fasta -r /data/fulongfei/git_repo/FluAB/data/Buffalo/FluB/IonCode_0101_004FluB_V2_50.bam -o 2 -n 10 -i bam -u -v -q 50000 --prefix-exclude 5 -Y -J 25 --end-repair 15 --context stage1 map4 >/data/fulongfei/git_repo/FluAB/test/IonCode_0101/TMAP/IonCode_0101.bam
 

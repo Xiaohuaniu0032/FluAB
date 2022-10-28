@@ -80,6 +80,13 @@ $cmd = "perl $Bin/scripts/fluAB_genotype.pl $seg_count $gt_results";
 print SH "$cmd\n\n";
 
 
+# samtools depth
+print SH "# samtools depth\n";
+my $samtools_depth_file = "$outdir/$name\.samtools_depth.txt";
+my $target = "$Bin/scripts/FluAB.target.bed";
+$cmd = "$samtools depth -a -b $target $sort_bam \>$samtools_depth_file";
+print SH "$cmd\n\n";
+
 
 print SH "# TMAP\n";
 # TMAP align uBAM
@@ -111,7 +118,6 @@ if (!-d "$outdir/variantCaller"){
 
 my $tvc = "$Bin/bin/variantCaller/bin/tvc";
 my $sse_dir = "$Bin/bin/variantCaller/share/TVC/sse";
-my $target = "$Bin/scripts/FluAB.target.bed";
 my $json = "$Bin/bin/variantCaller/pluginMedia/configs/germline_low_stringency.json";
 $cmd = "$tvc --output-dir $outdir/variantCaller --reference $tmap_ref --input-bam $sort_bam --num-threads 12 --target-file $target --trim-ampliseq-primers off --parameters-file $json --error-motifs-dir $sse_dir";
 print SH "$cmd\n\n";
@@ -160,21 +166,5 @@ print SH "$cmd\n\n";
 # --end-repair: specifies to perform end repair [>2 - specify %% Mismatch above which to trim end alignment]
 # --context: realign with context-dependent gap scores
 
-
-
-# 基于比对结果进行分型
-
-
-# 再次比对到分型参考序列
-
-
-# 变异检测freebayes
-
-# generateConsensus组装一致性序列
-
-# BLAST比对一致性序列.辅助分型
-
-
-# 汇总结果
 
 close SH;
