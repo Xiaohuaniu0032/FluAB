@@ -37,6 +37,7 @@ if (!-d "$outdir/BWA"){
 	`mkdir $outdir/BWA`;
 }
 
+print SH "# bam->fastq\n";
 # samtools fastq
 my $fq = "$outdir/BWA/$name\.fastq";
 my $cmd = "$samtools fastq $bam >$fq";
@@ -44,6 +45,7 @@ print SH "$cmd\n\n";
 
 
 # bwa aln
+print SH "# bwa align\n";
 #my $IRMA_ref = "$Bin/database/IRMA/modules/FLU/reference/consensus.fasta";
 my $bwa_ref = "$Bin/database/Update_Ref/BWA_INDEX/FluAB.fasta";
 my $sam = "$outdir/BWA/$name\.sam";
@@ -66,12 +68,20 @@ print SH "$cmd\n\n";
 
 
 # 统计每个segment数量
+print SH "# Seg count\n";
 my $seg_count = "$outdir/$name\.seg.count.txt";
 $cmd = "perl $Bin/scripts/stat_each_segment_reads_count.pl $sam $seg_count";
 print SH "$cmd\n\n";
 
+# genotype
+print SH "# Genotyping\n";
+my $gt_results = "$outdir/$name\.genotype.txt";
+$cmd = "perl $Bin/scripts/fluAB_genotype.pl $seg_count $gt_results";
+print SH "$cmd\n\n";
 
 
+
+print SH "# TMAP\n";
 # TMAP align uBAM
 if (!-d "$outdir/TMAP"){
 	`mkdir $outdir/TMAP`;
@@ -80,18 +90,19 @@ my $tmap_ref = "$Bin/database/Update_Ref/FluAB/FluAB.fasta";
 my $tmap = "$Bin/bin/variantCaller/bin/tmap";
 my $aln_bam = "$outdir/TMAP/$name\.bam";
 $cmd = "$tmap mapall -f $tmap_ref -r $bam -o 2 -n 10 -i bam -u -v -q 50000 --prefix-exclude 5 -Y -J 25 --end-repair 15 --context stage1 map4 \>$aln_bam";
-print SH "$cmd\n";
+print SH "$cmd\n\n";
 
 # samtools sort
 $sort_bam = "$outdir/TMAP/$name\.sorted.bam";
 $cmd = "$samtools sort -o $sort_bam $aln_bam";
-print SH "$cmd\n";
+print SH "$cmd\n\n";
 
 # index
 $cmd = "$samtools index $sort_bam";
-print SH "$cmd\n";
+print SH "$cmd\n\n";
 
 
+print SH "# variantCaller\n";
 # variantCaller
 # http://10.69.40.7/report/493/#SARS_CoV_2_variantCaller-section
 if (!-d "$outdir/variantCaller"){
@@ -103,7 +114,7 @@ my $sse_dir = "$Bin/bin/variantCaller/share/TVC/sse";
 my $target = "$Bin/scripts/FluAB.target.bed";
 my $json = "$Bin/bin/variantCaller/pluginMedia/configs/germline_low_stringency.json";
 $cmd = "$tvc --output-dir $outdir/variantCaller --reference $tmap_ref --input-bam $sort_bam --num-threads 12 --target-file $target --trim-ampliseq-primers off --parameters-file $json --error-motifs-dir $sse_dir";
-print SH "$cmd\n";
+print SH "$cmd\n\n";
 
 my $tvcutils = "$Bin/bin/variantCaller/bin/tvcutils";
 my $novel_tvc_vcf = "$outdir/variantCaller/small_variants.vcf";
@@ -113,8 +124,10 @@ my $tvc_metrics = "$outdir/variantCaller/tvc_metrics.json";
 my $depth_file = "$outdir/variantCaller/depth.txt";
 
 $cmd = "$tvcutils unify_vcf --novel-tvc-vcf $novel_tvc_vcf --output-vcf $TSVC_variants_vcf --reference-fasta $tmap_ref --novel-assembly-vcf $novel_assembly_vcf --tvc-metrics $tvc_metrics --input-depth $depth_file --min-depth 10";
-print SH "$cmd\n";
+print SH "$cmd\n\n";
 
+
+print SH "# generateConsensus\n";
 # generateConsensus
 if (!-d "$outdir/generateConsensus"){
 	`mkdir $outdir/generateConsensus`;
@@ -124,7 +137,7 @@ my $gvcf_to_fasta = "$Bin/bin/generateConsensus/gvcf_to_fasta.py";
 my $gvcf = "$outdir/variantCaller/TSVC_variants.genome.vcf";
 my $cons_fa = "$outdir/generateConsensus/$name\_consensus.fasta";
 $cmd = "$python2 $gvcf_to_fasta -m 1 -n 0.5 -p 0.6 -v $gvcf -o $cons_fa -c B_Yamagata_HA -d 10 -r $target";
-print SH "$cmd";
+print SH "$cmd\n\n";
 
 
 # -m: MAJOR_ALLELE_ONLY

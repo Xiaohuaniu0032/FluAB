@@ -19,8 +19,19 @@ while (<SAM>) {
 	next if /^\@/;
 	next if /^$/;
 	my @arr = split /\t/;
-	my $seg = $arr[2];
-	$count{$seg} += 1;
+	my $flag = $arr[1];
+	if ($flag == 0 || $flag == 16){
+		# 0 => mapped
+		# 16 => REVERSE
+		my $seg = $arr[2];
+		$count{$seg} += 1;
+	}else{
+		# 4 => unmap
+		# 2048 => SUPPLEMENTARY
+		# 2064 => REVERSE,SUPPLEMENTARY
+		# 256 => SECONDARY
+		next;
+	}
 }
 close SAM;
 
