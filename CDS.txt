@@ -1,0 +1,4 @@
+A_HA_H1,CY121680,21..1721,codon_start=1
+A_HA_H3,CY163680,18..1718,codon_start=1
+B_Victoria_HA,KX058884,34..1791,codon_start=1
+B_Yamagata_HA,JN993010,1..1755,codon_start=1
