@@ -143,7 +143,7 @@ my $gvcf_to_fasta = "$Bin/bin/generateConsensus/gvcf_to_fasta.py";
 my $gvcf = "$outdir/variantCaller/TSVC_variants.genome.vcf";
 my $cons_fa = "$outdir/generateConsensus/$name\_consensus.fasta";
 $cmd = "$python2 $gvcf_to_fasta -m 1 -n 0.5 -p 0.6 -v $gvcf -o $cons_fa -c B_Yamagata_HA -d 10 -r $target";
-print SH "$cmd\n\n";
+print SH "# $cmd\n\n";
 
 
 # -m: MAJOR_ALLELE_ONLY
