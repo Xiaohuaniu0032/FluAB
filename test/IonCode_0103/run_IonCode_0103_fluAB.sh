@@ -19,6 +19,9 @@ perl /data/fulongfei/git_repo/FluAB/scripts/fluAB_genotype.pl /data/fulongfei/gi
 # samtools depth
 /usr/bin/samtools depth -a -b /data/fulongfei/git_repo/FluAB/scripts/FluAB.target.bed /data/fulongfei/git_repo/FluAB/test/IonCode_0103/BWA/IonCode_0103.sorted.bam >/data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.samtools_depth.txt
 
+# summary table
+perl /data/fulongfei/git_repo/FluAB/scripts/summary_table.pl /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.samtools_depth.txt /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.genotype.txt /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.summary_table.xls
+
 # TMAP
 /data/fulongfei/git_repo/FluAB/bin/variantCaller/bin/tmap mapall -f /data/fulongfei/git_repo/FluAB/database/Update_Ref/FluAB/FluAB.fasta -r /data/fulongfei/git_repo/FluAB/data/Buffalo/FluA/IonCode_0103_013H3N2_V2_50.bam -o 2 -n 10 -i bam -u -v -q 50000 --prefix-exclude 5 -Y -J 25 --end-repair 15 --context stage1 map4 >/data/fulongfei/git_repo/FluAB/test/IonCode_0103/TMAP/IonCode_0103.bam
 
@@ -32,5 +35,5 @@ perl /data/fulongfei/git_repo/FluAB/scripts/fluAB_genotype.pl /data/fulongfei/gi
 /data/fulongfei/git_repo/FluAB/bin/variantCaller/bin/tvcutils unify_vcf --novel-tvc-vcf /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/small_variants.vcf --output-vcf /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/TSVC_variants.vcf --reference-fasta /data/fulongfei/git_repo/FluAB/database/Update_Ref/FluAB/FluAB.fasta --novel-assembly-vcf /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/indel_assembly.vcf --tvc-metrics /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/tvc_metrics.json --input-depth /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/depth.txt --min-depth 10
 
 # generateConsensus
-# /usr/bin/python2 /data/fulongfei/git_repo/FluAB/bin/generateConsensus/gvcf_to_fasta.py -m 1 -n 0.5 -p 0.6 -v /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/TSVC_variants.genome.vcf -o /data/fulongfei/git_repo/FluAB/test/IonCode_0103/generateConsensus/IonCode_0103_consensus.fasta -c B_Yamagata_HA -d 10 -r /data/fulongfei/git_repo/FluAB/scripts/FluAB.target.bed
+perl /data/fulongfei/git_repo/FluAB/scripts/generateConsensus.pl IonCode_0103 /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/TSVC_variants.genome.vcf /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.genotype.txt /data/fulongfei/git_repo/FluAB/database/Update_Ref/FluAB/FluAB.fasta /usr/bin/python2 /data/fulongfei/git_repo/FluAB/test/IonCode_0103/generateConsensus
 

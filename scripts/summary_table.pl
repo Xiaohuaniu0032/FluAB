@@ -96,10 +96,11 @@ if ($gt ne "NA"){
 	}
 	close GT;
 
+	# print header
 	for my $seg (@seg){
 		print O "\t$seg";
-		print O "\n";
 	}
+	print O "\n";
 
 
 	# Consensus Length
@@ -107,13 +108,43 @@ if ($gt ne "NA"){
 	for my $seg (@seg){
 		my $n = $seg_len{$seg};
 		print O "\t$n";
-		print O "\n";
 	}
+	print O "\n";
+
 	
 	# Mapped Reads
+	print O "Mapped Reads";
+	for my $seg (@seg){
+		my $count = $seg_reads_count{$seg};
+		print O "\t$count";
+	}
+	print O "\n";
+
 
 	# Mean Depth
+	print O "Mean Depth";
+	for my $seg (@seg){
+		my $depth = $seg_meanDepth{$seg};
+		print O "\t$depth";
+	}
+	print O "\n";
 
-	# Ratio (depth>=25X) 
+	
+	# Ratio (depth>=25X)
+	print O "Ratio (depth>=25X)";
+	for my $seg (@seg){
+		my $r = $depth_25X_ratio{$seg};
+		print O "\t$r";
+	}
+	print O "\n";
+}else{
+	print O "\n";
+	print O "Consensus Length\n";
+	print O "Mapped Reads\n";
+	print O "Mean Depth\n";
+	print O "Ratio (depth>=25X)\n";
 
+	close GT;
 }
+
+close O;

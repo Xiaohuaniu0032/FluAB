@@ -87,6 +87,13 @@ my $target = "$Bin/scripts/FluAB.target.bed";
 $cmd = "$samtools depth -a -b $target $sort_bam \>$samtools_depth_file";
 print SH "$cmd\n\n";
 
+# summary table
+print SH "# summary table\n";
+my $summary_table = "$outdir/$name\.summary_table.xls";
+$cmd = "perl $Bin/scripts/summary_table.pl $samtools_depth_file $gt_results $summary_table";
+print SH "$cmd\n\n";
+
+
 
 print SH "# TMAP\n";
 # TMAP align uBAM
@@ -133,27 +140,26 @@ $cmd = "$tvcutils unify_vcf --novel-tvc-vcf $novel_tvc_vcf --output-vcf $TSVC_va
 print SH "$cmd\n\n";
 
 
+
+
+
 print SH "# generateConsensus\n";
 # generateConsensus
 if (!-d "$outdir/generateConsensus"){
 	`mkdir $outdir/generateConsensus`;
 }
 
-my $gvcf_to_fasta = "$Bin/bin/generateConsensus/gvcf_to_fasta.py";
 my $gvcf = "$outdir/variantCaller/TSVC_variants.genome.vcf";
-my $cons_fa = "$outdir/generateConsensus/$name\_consensus.fasta";
-$cmd = "$python2 $gvcf_to_fasta -m 1 -n 0.5 -p 0.6 -v $gvcf -o $cons_fa -c B_Yamagata_HA -d 10 -r $target";
-print SH "# $cmd\n\n";
+
+$cmd = "perl $Bin/scripts/generateConsensus.pl $name $gvcf $gt_results $tmap_ref $python2 $outdir/generateConsensus";
+print SH "$cmd\n\n";
 
 
-# -m: MAJOR_ALLELE_ONLY
-# -n: The minimum variant frequency of a variant that is not a HP-INDEL to put it in the FASTA.
-# -p: The minimum variant frequency of a HP-INDEL to put it in the FASTA.
-# -a: ALIAS_CONTIG (Optional)
-# -c: PROCESS_CONTIG (Required) [Process the contig in input_fasta_file only]
+# 提取HA序列VCF
 
-# http://10.69.40.7/report/564/#generateConsensus-section
 
+
+# 注释HA变异位点
 
 # -o: --output-type [the output type. 0-SAM 1-BAM(compressed) 2-BAM(uncompressed)]
 # -n: --num-threads
@@ -168,3 +174,5 @@ print SH "# $cmd\n\n";
 
 
 close SH;
+
+`chmod 755 $runsh`;
