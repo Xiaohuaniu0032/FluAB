@@ -156,10 +156,18 @@ print SH "$cmd\n\n";
 
 
 # 提取HA序列VCF
-
+print SH "# extract HA vcf for annnot\n";
+my $HA_vcf_file = "$outdir/$name\_HA.vcf";
+$cmd = "perl $Bin/scripts/extract_HA_variants.pl $gt_results $TSVC_variants_vcf $HA_vcf_file";
+print SH "$cmd\n\n";
 
 
 # 注释HA变异位点
+print SH "# annot HA var\n";
+my $annot_vcf = "$outdir/$name\.snpEff.annot.vcf";
+my $java = "$Bin/bin/jre1.8.0_351/bin/java";
+$cmd = "$java -jar $Bin/bin/snpEff/snpEff.jar -c $Bin/bin/snpEff/snpEff.config FluAB $HA_vcf_file >$annot_vcf";
+print SH "$cmd\n\n";
 
 # -o: --output-type [the output type. 0-SAM 1-BAM(compressed) 2-BAM(uncompressed)]
 # -n: --num-threads

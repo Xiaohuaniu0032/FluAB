@@ -37,3 +37,9 @@ perl /data/fulongfei/git_repo/FluAB/scripts/summary_table.pl /data/fulongfei/git
 # generateConsensus
 perl /data/fulongfei/git_repo/FluAB/scripts/generateConsensus.pl IonCode_0103 /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/TSVC_variants.genome.vcf /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.genotype.txt /data/fulongfei/git_repo/FluAB/database/Update_Ref/FluAB/FluAB.fasta /usr/bin/python2 /data/fulongfei/git_repo/FluAB/test/IonCode_0103/generateConsensus
 
+# extract HA vcf for annnot
+perl /data/fulongfei/git_repo/FluAB/scripts/extract_HA_variants.pl /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.genotype.txt /data/fulongfei/git_repo/FluAB/test/IonCode_0103/variantCaller/TSVC_variants.vcf /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103_HA.vcf
+
+# annot HA var
+/data/fulongfei/git_repo/FluAB/bin/jre1.8.0_351/bin/java -jar /data/fulongfei/git_repo/FluAB/bin/snpEff/snpEff.jar -c /data/fulongfei/git_repo/FluAB/bin/snpEff/snpEff.config FluAB /data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103_HA.vcf >/data/fulongfei/git_repo/FluAB/test/IonCode_0103/IonCode_0103.snpEff.annot.vcf
+
