@@ -43,3 +43,6 @@ perl /data/fulongfei/git_repo/FluAB/scripts/extract_HA_variants.pl /data/fulongf
 # annot HA var
 /data/fulongfei/git_repo/FluAB/bin/jre1.8.0_351/bin/java -jar /data/fulongfei/git_repo/FluAB/bin/snpEff/snpEff.jar -c /data/fulongfei/git_repo/FluAB/bin/snpEff/snpEff.config FluAB /data/fulongfei/git_repo/FluAB/test/IonXpress_026/IonXpress_026_HA.vcf >/data/fulongfei/git_repo/FluAB/test/IonXpress_026/IonXpress_026.snpEff.annot.vcf
 
+# Final variant annot file
+perl /data/fulongfei/git_repo/FluAB/scripts/format_snpEff.pl /data/fulongfei/git_repo/FluAB/test/IonXpress_026/IonXpress_026.snpEff.annot.vcf /data/fulongfei/git_repo/FluAB/test/IonXpress_026/IonXpress_026.variants.snpEff.xls
+
