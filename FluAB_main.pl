@@ -169,6 +169,16 @@ my $java = "$Bin/bin/jre1.8.0_351/bin/java";
 $cmd = "$java -jar $Bin/bin/snpEff/snpEff.jar -c $Bin/bin/snpEff/snpEff.config FluAB $HA_vcf_file >$annot_vcf";
 print SH "$cmd\n\n";
 
+
+# 格式化注释文件.展示变异位点注释详细信息.
+print SH "\# Final variant annot file\n";
+my $var_annot_file = "$outdir/$name\.variants.snpEff.xls";
+$cmd = "perl $Bin/scripts/format_snpEff.pl $annot_vcf $var_annot_file";
+print SH "$cmd\n\n";
+
+
+
+
 # -o: --output-type [the output type. 0-SAM 1-BAM(compressed) 2-BAM(uncompressed)]
 # -n: --num-threads
 # -u: --rand-read-name 
