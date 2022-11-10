@@ -125,7 +125,7 @@ if (!-d "$outdir/variantCaller"){
 
 my $tvc = "$Bin/bin/variantCaller/bin/tvc";
 my $sse_dir = "$Bin/bin/variantCaller/share/TVC/sse";
-my $json = "$Bin/bin/variantCaller/pluginMedia/configs/germline_low_stringency.json";
+my $json = "$Bin/bin/variantCaller/pluginMedia/configs/germline_low_stringency.20221108.json";
 $cmd = "$tvc --output-dir $outdir/variantCaller --reference $tmap_ref --input-bam $sort_bam --num-threads 12 --target-file $target --trim-ampliseq-primers off --parameters-file $json --error-motifs-dir $sse_dir";
 print SH "$cmd\n\n";
 
@@ -151,32 +151,42 @@ if (!-d "$outdir/generateConsensus"){
 
 my $gvcf = "$outdir/variantCaller/TSVC_variants.genome.vcf";
 
-$cmd = "perl $Bin/scripts/generateConsensus.pl $name $gvcf $gt_results $tmap_ref $python2 $outdir/generateConsensus";
+$cmd = "perl $Bin/scripts/generateConsensus.pl $name $gvcf $gt_results $target $python2 $outdir/generateConsensus";
 print SH "$cmd\n\n";
 
 
 # 提取HA序列VCF
-print SH "# extract HA vcf for annnot\n";
+print SH "# extract HA vcf\n";
 my $HA_vcf_file = "$outdir/$name\_HA.vcf";
 $cmd = "perl $Bin/scripts/extract_HA_variants.pl $gt_results $TSVC_variants_vcf $HA_vcf_file";
 print SH "$cmd\n\n";
 
 
 # 注释HA变异位点
-print SH "# annot HA var\n";
+#print SH "# annot HA var\n";
 my $annot_vcf = "$outdir/$name\.snpEff.annot.vcf";
 my $java = "$Bin/bin/jre1.8.0_351/bin/java";
 $cmd = "$java -jar $Bin/bin/snpEff/snpEff.jar -c $Bin/bin/snpEff/snpEff.config FluAB $HA_vcf_file >$annot_vcf";
-print SH "$cmd\n\n";
+#print SH "$cmd\n\n";
 
+
+# 提取HA片段AA坐标信息用于后续注释
+print SH "# extract HA AA pos info\n";
+my $aa_list = "$outdir/$name\.HA.aa.list";
+$cmd = "perl $Bin/scripts/make_HA_aa_list.pl $gt_results $Bin/codon.list $bwa_ref $Bin/CDS.txt $aa_list";
+print SH "$cmd\n\n";
 
 # 格式化注释文件.展示变异位点注释详细信息.
 print SH "\# Final variant annot file\n";
 my $var_annot_file = "$outdir/$name\.variants.snpEff.xls";
 $cmd = "perl $Bin/scripts/format_snpEff.pl $annot_vcf $var_annot_file";
-print SH "$cmd\n\n";
+#print SH "$cmd\n\n";
 
 
+
+# http://gmod.org/wiki/GFF3
+# https://pcingola.github.io/SnpEff/se_build_db_gff_gtf/#gff-genome-sequence
+# https://pcingola.github.io/SnpEff/se_build_db/
 
 
 # -o: --output-type [the output type. 0-SAM 1-BAM(compressed) 2-BAM(uncompressed)]
